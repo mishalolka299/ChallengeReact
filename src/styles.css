@@ -1,0 +1,53 @@
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.fetch-users-btn,
+.delete-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.fetch-users-btn:hover,
+.delete-btn:hover {
+  background-color: #0056b3;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.user-item span {
+  flex: 1;
+}
