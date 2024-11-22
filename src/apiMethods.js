@@ -12,8 +12,8 @@ import axios from "axios";
 
 const baseUrl = "https://reqres.in/api";
 
-export const getUsers = () => {
-  return axios.get(`${baseUrl}/users`);
+export const getUsers = (page = 1) => {
+  return axios.get(`${baseUrl}/users?page=${page}`);
 };
 
 export const deleteUser = (userId) => {

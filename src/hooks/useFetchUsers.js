@@ -3,13 +3,18 @@ import { getUsers, deleteUser } from "../apiMethods";
 
 const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [error, setError] = useState("");
 
-  const fetchUsers = async () => {
+  const fetchUsers = async (page = 1) => {
     try {
-      setError(""); // Очистити попередні помилки
-      const response = await getUsers();
+      setError("");
+      const response = await getUsers(page);
+      console.log(response.data);
       setUsers(response.data.data);
+      setCurrentPage(response.data.page);
+      setTotalPages(response.data.total_pages);
     } catch (error) {
       setError("Failed to fetch users. Please try again.");
       console.error("Fetch Users Error:", error);
@@ -29,7 +34,16 @@ const useFetchUsers = () => {
 
   const clearError = () => setError("");
 
-  return { users, fetchUsers, removeUser, error, clearError };
+  return {
+    users,
+    fetchUsers,
+    removeUser,
+    currentPage,
+    totalPages,
+    setCurrentPage,
+    error,
+    clearError,
+  };
 };
 
 export default useFetchUsers;
